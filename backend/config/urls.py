@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
@@ -12,6 +12,7 @@ def trigger_error(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
+    path('api/', include('help_requests.urls')),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('graphql', csrf_exempt(GraphQLView.as_view(graphiql=settings.DEBUG))),
     path('sentry-debug/', trigger_error),
