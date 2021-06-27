@@ -37,10 +37,12 @@ THIRD_PARTY_APPS = [
     'graphene_django',
     'django_extensions',
     'storages',
+    'rest_framework',
 ]
 
 LOCAL_APPS = [
     'apps.users',
+    'apps.help_requests',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
