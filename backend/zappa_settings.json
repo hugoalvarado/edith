@@ -1,0 +1,33 @@
+{
+  "prod": {
+    "app_function": "config.wsgi.application",
+    "aws_region": "us-east-1",
+    "certificate_arn": "",
+    "cors": true,
+    "domain": "api.edith.hugoalvarado.net",
+    "django_settings": "config.settings",
+    "exclude": [],
+    "environment_variables": {
+      "ALLOWED_HOSTS": "*",
+      "AWS_STORAGE_BUCKET_NAME": "CHANGEME-storage-bucket-name",
+      "WEBSITE_URL": "https://www.edith.hugoalvarado.net",
+      "ROOT_DOMAIN": "edith.hugoalvarado.net",
+      "DJANGO_SETTINGS_MODULE": "config.settings",
+      "SENTRY_DSN": ""
+    },
+    "keep_warm": false,
+    "memory_size": 1024,
+    "project_name": "Edith",
+    "remote_env": "s3://prod.edith.hugoalvarado.net/env.json",
+    "runtime": "python3.7",
+    "s3_bucket": "prod.edith.hugoalvarado.net",
+    "tags": {
+      "app": "edith"
+    },
+    "timeout_seconds": 30,
+    "vpc_config": {
+      "SubnetIds": [],
+      "SecurityGroupIds": []
+    }
+  }
+}
