@@ -249,6 +249,8 @@ AUTH_USER_MODEL = 'users.User'
 # CORS
 CORS_ORIGIN_WHITELIST = [
     'https://edith.hugoalvarado.net',
+    'http://localhost:8080',
+    'http://0.0.0.0:8080',
 ]
 
 # Graphene
