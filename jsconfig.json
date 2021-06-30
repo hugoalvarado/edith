@@ -9,5 +9,8 @@
       "@/*": ["frontend/src/*"]
     }
   },
-  "exclude": ["node_modules", "frontend/dist/**", "frontend/node_modules/**"]
+  "exclude": ["node_modules",
+    "frontend.old/dist/**",
+    "frontend.old/node_modules/**"
+  ]
 }

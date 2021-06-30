@@ -1,26 +1,33 @@
-<template lang="html">
-  <component :is="layout">
+<template>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/new-help-request">New Help Request</router-link>
+    </div>
     <router-view />
-  </component>
+  </div>
 </template>
 
-<script>
-import { onLogout } from './apollo'
-
-const defaultLayout = 'default'
-
-export default {
-  name: 'App',
-  computed: {
-    layout() {
-      return this.$route.meta.layout || defaultLayout
-    }
-  },
-  metaInfo: {
-    // if no subcomponents specify a metaInfo.title, this title will be used
-    title: 'Edith',
-    // all titles will be injected into this template
-    titleTemplate: '%s | Edith'
-  }
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
-</script>
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
