@@ -10,16 +10,18 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_HELP_REQUESTS(state, requests) {
-        state.helpRequests = requests
+      state.helpRequests = requests
     }
   },
   actions: {
-    createHelpRequest(context) {
+    createHelpRequest(context, params) {
+      debugger
       let url = 'http://0.0.0.0:8000/api/help-requests/'
       axios.post(url, {
-        'description': 'test',
-        'requestDate': '1/1/2020'
+        'description': params.description,
+        'complete_by': params.completeByDate
       }).then(response => {
+        console.log(response)
         context.commit('SET_HELP_REQUESTS', response.data)
       })
     }

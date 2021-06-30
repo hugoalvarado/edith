@@ -26,19 +26,19 @@
             <h1 class="title is-1">Edith can find the help you need</h1>
             <p class="is-size-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi soluta
               voluptate facere molestiae consequatur.</p>
-            <div class="social-media">
-              <a href="https://facebook.com" target="_blank" class="button is-light is-large"><i
-                class="fa fa-facebook-square" aria-hidden="true"></i></a>
-              <a href="https://instagram.com" target="_blank" class="button is-light is-large"><i
-                class="fa fa-instagram" aria-hidden="true"></i></a>
-              <a href="https://twitter.com" target="_blank" class="button is-light is-large"><i class="fa fa-twitter"
-                                                                                                aria-hidden="true"></i></a>
-            </div>
+            <!--            <div class="social-media">-->
+            <!--              <a href="https://facebook.com" target="_blank" class="button is-light is-large"><i-->
+            <!--                class="fa fa-facebook-square" aria-hidden="true"></i></a>-->
+            <!--              <a href="https://instagram.com" target="_blank" class="button is-light is-large"><i-->
+            <!--                class="fa fa-instagram" aria-hidden="true"></i></a>-->
+            <!--              <a href="https://twitter.com" target="_blank" class="button is-light is-large"><i class="fa fa-twitter"-->
+            <!--                                                                                                aria-hidden="true"></i></a>-->
+            <!--            </div>-->
           </div>
           <div class="column is-one-third has-text-left">
             <b-field label="Help me with">
               <b-input
-                v-bind="detail"
+                v-model="description"
                 maxlength="180"
                 placeholder="Moving my couch..."
                 type="textarea">
@@ -46,14 +46,16 @@
             </b-field>
             <b-field label="When?">
               <b-datetimepicker
-                v-bind="date"
-                placeholder="Click to select..."
+                v-model="completeByDate"
+                placeholder="Tomorrow..."
                 icon="calendar-today"
                 horizontal-time-picker>
               </b-datetimepicker>
             </b-field>
             <div class="control">
-              <button type="submit" @click="handleClick" class="button is-link is-fullwidth has-text-weight-medium is-medium">Submit</button>
+              <button type="submit" @click="handleClick"
+                      class="button is-link is-fullwidth has-text-weight-medium is-medium">Submit
+              </button>
             </div>
           </div>
         </div>
@@ -68,13 +70,17 @@ export default {
   name: "NewHelpRequest",
   data() {
     return {
-      detail: "",
-      date: ""
+      description: "",
+      completeByDate: new Date()
     };
   },
   methods: {
-    async handleClick() {
-      await this.$store.dispatch('createHelpRequest')
+    handleClick() {
+      this.$store.dispatch('createHelpRequest',
+        {
+          'description': this.description,
+          'completeByDate': this.completeByDate
+        })
       // this.$router.push({ name: 'home' })
     }
   }

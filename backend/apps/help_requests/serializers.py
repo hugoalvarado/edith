@@ -6,4 +6,4 @@ class HelpRequestSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HelpRequest
-        fields = ['description', 'completed', 'created_at']
+        fields = ['description', 'completed', 'created_at', 'complete_by']
