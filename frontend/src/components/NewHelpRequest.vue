@@ -1,6 +1,5 @@
 <template>
 
-
   <!--  <!DOCTYPE html>-->
   <!--<html lang="en">-->
 
@@ -19,6 +18,7 @@
 
 
   <section class="hero is-fullheight">
+
     <div class="hero-body">
       <div class="container has-text-centered">
         <div class="columns is-8 is-variable ">
@@ -61,11 +61,14 @@
         </div>
       </div>
     </div>
+
   </section>
+
 
 </template>
 
 <script>
+
 export default {
   name: "NewHelpRequest",
   data() {
