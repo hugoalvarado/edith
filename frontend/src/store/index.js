@@ -15,7 +15,6 @@ export default new Vuex.Store({
   },
   actions: {
     createHelpRequest(context, params) {
-      debugger
       let url = 'http://0.0.0.0:8000/api/help-requests/'
       axios.post(url, {
         'description': params.description,
